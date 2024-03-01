@@ -8,45 +8,39 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup CMake
-        uses: lukka/get-cmake@v3.21.3
+      - name: Install CMake (Ubuntu)
+        run: sudo apt-get install cmake
 
       - name: Configure CMake for Ubuntu
-        run: |
-          cmake -S . -B build
+        run: cmake -S . -B build
 
       - name: Build on Ubuntu
-        run: |
-          cmake --build build --config Release
+        run: cmake --build build --config Release
 
   build-windows:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup CMake
-        uses: lukka/get-cmake@v3.21.3
+      - name: Install CMake (Windows)
+        run: choco install cmake
 
       - name: Configure CMake for Windows
-        run: |
-          cmake -S . -B build
+        run: cmake -S . -B build
 
       - name: Build on Windows
-        run: |
-          cmake --build build --config Release
+        run: cmake --build build --config Release
 
   build-macos:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup CMake
-        uses: lukka/get-cmake@v3.21.3
+      - name: Install CMake (macOS)
+        run: brew install cmake
 
       - name: Configure CMake for macOS
-        run: |
-          cmake -S . -B build
+        run: cmake -S . -B build
 
       - name: Build on macOS
-        run: |
-          cmake --build build --config Release
+        run: cmake --build build --config Release
