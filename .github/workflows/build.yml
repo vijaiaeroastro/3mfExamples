@@ -32,13 +32,15 @@ jobs:
         run: choco install cmake
 
       - name: Configure CMake for Windows
-        run: cmake -S . -B build
+        run: cmake -G "Visual Studio 16 2019" -S . -B build
 
       - name: Build on Windows
         run: cmake --build build --config Release
 
       - name: Binary dependencies
-        run: dumpbin /dependents build/Release/Example_ExtractInfo.exe
+        run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x64
+          dumpbin /dependents build/Release/Example_ExtractInfo.exe
 
       - name: Run one example
         run: build/Release/Example_ExtractInfo.exe Files/Helix.3mf
@@ -58,7 +60,7 @@ jobs:
         run: cmake --build build --config Release
 
       - name: Binary dependencies
-        run: ldd build/Example_ExtractInfo
+        run: otool -L build/Example_ExtractInfo
 
       - name: Run one example
         run: build/Example_ExtractInfo Files/Helix.3mf
