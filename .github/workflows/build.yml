@@ -17,6 +17,9 @@ jobs:
       - name: Build on Ubuntu
         run: cmake --build build --config Release
 
+      - name: Run one example
+        run: build/Example_ExtractInfo Files/Helix.3mf
+
   build-windows:
     runs-on: windows-latest
     steps:
@@ -31,6 +34,9 @@ jobs:
       - name: Build on Windows
         run: cmake --build build --config Release
 
+      - name: Run one example
+        run: build/Release/Example_ExtractInfo.exe Files/Helix.3mf
+
   build-macos:
     runs-on: macos-latest
     steps:
@@ -44,3 +50,6 @@ jobs:
 
       - name: Build on macOS
         run: cmake --build build --config Release
+
+      - name: Run one example
+        run: build/Example_ExtractInfo Files/Helix.3mf
