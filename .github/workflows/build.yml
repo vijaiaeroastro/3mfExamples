@@ -37,10 +37,11 @@ jobs:
       - name: Build on Windows
         run: cmake --build build --config Release
 
-      - name: Binary dependencies
+      - name: Dump binary dependencies
         run: |
-          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat"
+          "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat"
           dumpbin /dependents build/Release/Example_ExtractInfo.exe
+        shell: cmd
 
       - name: Run one example
         run: build/Release/Example_ExtractInfo.exe Files/Helix.3mf
