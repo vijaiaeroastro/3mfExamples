@@ -39,8 +39,7 @@ jobs:
 
       - name: Dump binary dependencies
         run: |
-          "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat"
-          dumpbin /dependents build/Release/Example_ExtractInfo.exe
+          CALL "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" && dumpbin /dependents build/Release/Example_ExtractInfo.exe
         shell: cmd
 
       - name: Run one example
