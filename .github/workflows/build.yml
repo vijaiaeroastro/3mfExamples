@@ -33,7 +33,7 @@ jobs:
 
       - name: Install lib3mf (through VCPKG)
         run: |
-          git clone --recurse-submodules git@github.com:vijaiaeroastro/vcpkg.git
+          git clone --recurse-submodules https://github.com/vijaiaeroastro/vcpkg.git
           cd vcpkg
           ./bootstrap-vcpkg.sh
           ./vcpkg install lib3mf
@@ -82,7 +82,7 @@ jobs:
 
       - name: Install lib3mf (through VCPKG)
         run: |
-          git clone --recurse-submodules git@github.com:vijaiaeroastro/vcpkg.git
+          git clone --recurse-submodules https://github.com/vijaiaeroastro/vcpkg.git
           cd vcpkg
           ./bootstrap-vcpkg.sh
           ./vcpkg install lib3mf        
