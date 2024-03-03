@@ -82,8 +82,10 @@ jobs:
 
       - name: Install lib3mf (through VCPKG)
         run: |
-          git clone --recurse-submodules https://github.com/vijaiaeroastro/vcpkg.git && cd vcpkg && 
-          .\bootstrap-vcpkg.bat && .\vcpkg.exe install lib3mf
+          git clone --recurse-submodules https://github.com/vijaiaeroastro/vcpkg.git 
+          cd vcpkg
+          .\bootstrap-vcpkg.bat 
+          .\vcpkg.exe install lib3mf
         shell: cmd
 
       - name: Configure CMake for Windows
