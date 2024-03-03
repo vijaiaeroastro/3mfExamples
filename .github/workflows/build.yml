@@ -50,27 +50,27 @@ jobs:
 #      - name: Run one example
 #        run: build/Example_ExtractInfo Files/Helix.3mf
 #
-#  build-windows:
-#    runs-on: windows-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - name: Install CMake (Windows)
-#        run: choco install cmake
-#
-#      - name: Configure CMake for Windows
-#        run: cmake -S . -B build
-#
-#      - name: Build on Windows
-#        run: cmake --build build --config Release
-#
-#      - name: Dump binary dependencies
-#        run: |
-#          CALL "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" && dumpbin /dependents build/Release/Example_ExtractInfo.exe
-#        shell: cmd
-#
-#      - name: Run one example
-#        run: build/Release/Example_ExtractInfo.exe Files/Helix.3mf
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install CMake (Windows)
+        run: choco install cmake
+
+      - name: Configure CMake for Windows
+        run: cmake -S . -B build
+
+      - name: Build on Windows
+        run: cmake --build build --config Release
+
+      - name: Dump binary dependencies
+        run: |
+          CALL "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" && dumpbin /dependents build/Release/Example_ExtractInfo.exe
+        shell: cmd
+
+      - name: Run one example
+        run: build/Release/Example_ExtractInfo.exe Files/Helix.3mf
 
   build-windows_vcpkg:
     runs-on: windows-latest
