@@ -85,6 +85,8 @@ jobs:
           git clone --recurse-submodules https://github.com/vijaiaeroastro/vcpkg.git 
           cd vcpkg
           .\bootstrap-vcpkg.bat 
+          dir
+          ls
           .\vcpkg.exe install lib3mf
         shell: cmd
 
