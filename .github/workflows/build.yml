@@ -23,6 +23,33 @@ jobs:
       - name: Run one example
         run: build/Example_ExtractInfo Files/Helix.3mf
 
+  build-ubuntu_vcpkg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install CMake (Ubuntu)
+        run: sudo apt-get install cmake git
+
+      - name: Install lib3mf (through VCPKG)
+        run: |
+          git clone --recurse-submodules git@github.com:vijaiaeroastro/vcpkg.git
+          cd vcpkg
+          ./bootstrap-vcpkg.sh
+          ./vcpkg install lib3mf
+
+      - name: Configure CMake for Ubuntu
+        run: cmake -S . -B build
+
+      - name: Build on Ubuntu
+        run: cmake --build build --config Release
+
+      - name: Binary dependencies
+        run: ldd build/Example_ExtractInfo
+
+      - name: Run one example
+        run: build/Example_ExtractInfo Files/Helix.3mf
+
   build-windows:
     runs-on: windows-latest
     steps:
@@ -51,7 +78,14 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install CMake (macOS)
-        run: brew install cmake
+        run: brew install cmake git
+
+      - name: Install lib3mf (through VCPKG)
+        run: |
+          git clone --recurse-submodules git@github.com:vijaiaeroastro/vcpkg.git
+          cd vcpkg
+          ./bootstrap-vcpkg.sh
+          ./vcpkg install lib3mf        
 
       - name: Configure CMake for macOS
         run: cmake -S . -B build
