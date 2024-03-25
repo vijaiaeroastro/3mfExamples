@@ -80,7 +80,7 @@ jobs:
       - name: Install CMake (Windows)
         run: choco install cmake git
 
-      - name: Install lib3mf (through VCPKG)
+      - name: Install lib3mf ( through VCPKG )
         run: |
           git clone --recurse-submodules https://github.com/vijaiaeroastro/vcpkg.git 
           cd vcpkg
