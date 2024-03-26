@@ -78,7 +78,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install CMake (Windows)
-        run: choco install cmake git
+        run: choco install git
 
       - name: Install lib3mf ( through VCPKG )
         run: |
