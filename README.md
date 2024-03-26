@@ -6,4 +6,5 @@ without the need for VCPKG or any other fancy package managers.
 
 It also has workflows to demonstrate VCPKG capabilities.
 
-It also checks for different library dependencies of binaries using LDD / dumpbin / otool.
+It also checks for different library dependencies of binaries using 
+LDD / dumpbin / otool.
